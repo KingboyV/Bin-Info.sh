@@ -19,9 +19,9 @@ cd Bin-Info.sh
 
 ls
 
-chmod +x bin-Info.sh
+chmod +x bin-info.sh
 
-./bin-Info.sh
+./bin-info.sh
 ```
 
 #### By: KINGBOY
