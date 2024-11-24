@@ -15,7 +15,7 @@ pkg install git -y
 
 git clone https://github.com/KingboyV/Bin-Info.sh.git
 
-cd Bin-Info.sh
+cd bin-info.sh
 
 ls
 
@@ -24,4 +24,4 @@ chmod +x bin-info.sh
 ./bin-info.sh
 ```
 
-#### By: KINGBOY
+#### By: KINGBOY 
