@@ -6,9 +6,7 @@ echo -e "\e[37m
 ██─▄─▀██─███─█▄▀─█████─███─█▄▀─███─▄███─██─█
 ▀▄▄▄▄▀▀▄▄▄▀▄▄▄▀▀▄▄▀▀▀▄▄▄▀▄▄▄▀▀▄▄▀▄▄▄▀▀▀▄▄▄▄▀\e[0m"
 
-echo -e "\e[1;34mBIN INFORMACIÓN BY KINGBOY\e[0m"
-
-###### echo -e "\e[1;33mOBTEN INFORMACIÓN DE UN BIN\e[0m"
+echo -e "\e[1;34mBY 🅚🅘🅝🅖🅑🅞🅨\e[0m"
 
 while true; do
     # Solicitar al usuario que ingrese el BIN
@@ -38,4 +36,4 @@ done
 
 echo "¡Gracias por utilizar el script de consulta de BINs!"
 
-#### By: echo -e "\e[1;33mKINGBOY\e[0m"
+echo -e "\e[1;33mBY 🅚🅘🅝🅖🅑🅞🅨\e[0m"
