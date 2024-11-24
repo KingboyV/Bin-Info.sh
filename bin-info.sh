@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/bin/bash
 
 echo -e "\e[37m
 ████████████████████████████████████████████
@@ -10,26 +10,32 @@ echo -e "\e[1;34mBIN INFORMACIÓN BY KINGBOY\e[0m"
 
 ###### echo -e "\e[1;33mOBTEN INFORMACIÓN DE UN BIN\e[0m"
 
-# Verificar que se proporcione un argumento al script
-if [ $# -ne 1 ] || [ ${#1} -ne 6 ]; then
-    echo "Ingresa el BIN de 6 dígitos"
-    exit 1
-fi
+while true; do
+    # Solicitar al usuario que ingrese el BIN
+    read -p "Ingresa el BIN a consultar: " bin
 
-# Realizar la solicitud a un servicio en línea para obtener la información del BIN
-response=$(curl -s "https://lookup.binlist.net/$1")
+    # Realizar la consulta al servicio binlist.net
+    response=$(curl -s "https://lookup.binlist.net/$bin")
 
-# Verificar si se recibió una respuesta válida
-if [ -z "$response" ]; then
-    echo "No se pudo obtener información para el BIN $1. Por favor, verifica el número de BIN."
-    exit 1
-fi
+    # Extraer la información relevante del resultado de la consulta
+    country=$(echo $response | jq -r '.country.name')
+    bank=$(echo $response | jq -r '.bank.name')
+    type=$(echo $response | jq -r '.type')
+    category=$(echo $response | jq -r '.category')
 
-# Extraer y mostrar el nombre del banco y el país usando la herramienta jq
-bank=$(echo $response | jq -r '.bank.name')
-country=$(echo $response | jq -r '.country.name')
+    # Mostrar la información obtenida al usuario
+    echo "País: $country"
+    echo "Banco: $bank"
+    echo "Tipo de tarjeta: $type"
+    echo "Categoría: $category"
 
-# Mostrar la información del BIN
-echo "El BIN $1 pertenece al banco $bank en $country."
+    # Preguntar al usuario si desea realizar otra consulta
+    read -p "¿Deseas realizar otra consulta? (s/n): " option
+    if [ "$option" != "s" ]; then
+        break
+    fi
+done
+
+echo "¡Gracias por utilizar el script de consulta de BINs!"
 
 #### By: echo -e "\e[1;33mKINGBOY\e[0m"
